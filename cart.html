@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart – Killer Kicks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-logo"></div>
+      <div>
+        <div class="brand-text-main">Killer Kicks</div>
+        <div class="brand-text-sub">Nike · Puma · Adidas · Asics · New Balance</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html" class="active">Cart</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrapper">
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Your cart</div>
+        <h1 class="section-title">Review your order</h1>
+      </div>
+      <p class="section-subtitle">
+        These are the items you’re about to purchase. You can go back to products to add more pairs.
+      </p>
+    </div>
+
+    <div class="about-layout">
+      <!-- Cart items -->
+      <div class="grid">
+        <article class="card animate-up delay-1">
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <img
+              class="card-img"
+              style="max-width:160px;"
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+              alt="Nike Air Shift shoe"
+            />
+            <div>
+              <h3 class="card-title">Nike Air Shift</h3>
+              <p class="card-meta">Size: EU 42 · Colour: Triple White</p>
+              <p class="muted">Brand: Nike</p>
+              <div class="card-footer" style="margin-top:0.5rem;">
+                <div class="price">₹9,990</div>
+                <span class="muted">Qty: 1</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card animate-up delay-2">
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <img
+              class="card-img"
+              style="max-width:160px;"
+              src="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
+              alt="New Balance 574 Neo shoe"
+            />
+            <div>
+              <h3 class="card-title">New Balance 574 Neo</h3>
+              <p class="card-meta">Size: EU 43 · Colour: Grey</p>
+              <p class="muted">Brand: New Balance</p>
+              <div class="card-footer" style="margin-top:0.5rem;">
+                <div class="price">₹9,490</div>
+                <span class="muted">Qty: 1</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Summary -->
+      <aside class="card animate-right delay-3">
+        <h2 class="card-title">Order summary</h2>
+        <p class="card-meta">Check totals before payment</p>
+
+        <div style="margin-top:0.8rem; font-size:0.9rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">Subtotal</span>
+            <span>₹19,480</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">GST (18%)</span>
+            <span>₹3,506</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">Shipping</span>
+            <span>₹0</span>
+          </div>
+          <hr style="border:none; border-top:1px solid rgba(148,163,184,0.4); margin:0.7rem 0;" />
+          <div style="display:flex; justify-content:space-between; font-weight:700;">
+            <span>Total</span>
+            <span>₹22,986</span>
+          </div>
+        </div>
+
+        <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.6rem;">
+          <a href="payment.html" class="btn-primary">Proceed to Payment</a>
+          <a href="products.html" class="btn-ghost">Add more products</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2025 Killer Kicks. All rights reserved.</div>
+    <div><a href="index.html">Home</a> · <a href="products.html">Products</a> · Cart</div>
+  </footer>
+</main>
+</body>
+</html>

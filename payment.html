@@ -32,13 +32,14 @@
         <h1 class="section-title">Payment details</h1>
       </div>
       <p class="section-subtitle">
-        Fill in your contact and address details. This is a demo only – no real payment will be processed.
+        Very simple demo checkout – no real payment. Just fill this, hit “Place order”
+        and you’ll see the thank you page.
       </p>
     </div>
 
     <div class="split">
       <!-- Form -->
-      <form class="form fade-up delay-1" action="thankyou.html" method="GET">
+      <form class="form fade-up delay-1" id="payment-form">
         <div class="form-row">
           <div>
             <label class="label" for="fullname">Full name</label>
@@ -82,28 +83,25 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-primary">Pay securely</button>
+        <button type="submit" class="btn-primary">Place order</button>
         <a href="cart.html" class="btn-outline" style="margin-top:0.5rem;">Back to cart</a>
       </form>
 
       <!-- Summary -->
       <aside class="card fade-right delay-2">
         <h2 class="card-title">Order summary</h2>
-        <p class="card-meta">Nike + New Balance</p>
+        <p class="card-meta">Based on your cart</p>
 
-        <p class="muted" style="margin-top:0.6rem;">
-          • Nike Air Shift – Size 42<br />
-          • New Balance 574 Neo – Size 43
-        </p>
+        <div id="order-items" class="muted" style="margin-top:0.6rem;"></div>
 
-        <div style="margin-top:0.8rem; font-size:0.9rem;">
+        <div style="margin-top:0.9rem; font-size:0.9rem;">
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">Subtotal</span>
-            <span>₹19,480</span>
+            <span id="pay-subtotal">₹0</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">GST (18%)</span>
-            <span>₹3,506</span>
+            <span id="pay-gst">₹0</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">Shipping</span>
@@ -112,13 +110,12 @@
           <hr style="border:none; border-top:1px solid #e5e7eb; margin:0.7rem 0;" />
           <div style="display:flex; justify-content:space-between; font-weight:700;">
             <span>Total</span>
-            <span>₹22,986</span>
+            <span id="pay-total">₹0</span>
           </div>
         </div>
 
-        <p class="muted" style="margin-top:0.8rem;">
-          Payments are secured and encrypted. For demo purposes, this page simply leads to
-          a thank you screen.
+        <p class="muted" style="margin-top:0.9rem;">
+          This is a frontend demo – no real payment is processed. Perfect for portfolio or college project use.
         </p>
       </aside>
     </div>
@@ -129,5 +126,67 @@
     <div><a href="index.html">Home</a> · <a href="products.html">Products</a> · <a href="cart.html">Cart</a></div>
   </footer>
 </main>
+
+<script>
+  const CART_KEY = "killerKicksCart";
+
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function formatINR(n) {
+    return "₹" + n.toLocaleString("en-IN");
+  }
+
+  function renderSummary() {
+    const itemsEl = document.getElementById("order-items");
+    const subEl = document.getElementById("pay-subtotal");
+    const gstEl = document.getElementById("pay-gst");
+    const totalEl = document.getElementById("pay-total");
+
+    const cart = getCart();
+
+    if (!cart.length) {
+      itemsEl.innerHTML = `<p>No items in cart. <a href="products.html">Add some sneakers</a> first.</p>`;
+      subEl.textContent = "₹0";
+      gstEl.textContent = "₹0";
+      totalEl.textContent = "₹0";
+      return;
+    }
+
+    let subtotal = 0;
+    itemsEl.innerHTML = "";
+
+    cart.forEach((item) => {
+      const lineTotal = item.price * item.qty;
+      subtotal += lineTotal;
+      const line = document.createElement("p");
+      line.textContent = `${item.name} × ${item.qty}`;
+      itemsEl.appendChild(line);
+    });
+
+    const gst = Math.round(subtotal * 0.18);
+    const total = subtotal + gst;
+
+    subEl.textContent = formatINR(subtotal);
+    gstEl.textContent = formatINR(gst);
+    totalEl.textContent = formatINR(total);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    renderSummary();
+
+    document.getElementById("payment-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      // Clear cart and go to thank you
+      localStorage.removeItem(CART_KEY);
+      window.location.href = "thankyou.html";
+    });
+  });
+</script>
 </body>
 </html>

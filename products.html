@@ -61,7 +61,7 @@
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
-          alt="Triple white Nike sneaker on dark background"
+          alt="Red Nike running shoe on red background"
         />
         <h3 class="card-title">Nike Air Shift Triple White</h3>
         <p class="card-meta">Nike · Clean daily pair</p>
@@ -78,12 +78,12 @@
         data-product-name="Adidas Cloudline Black"
         data-product-brand="Adidas"
         data-product-price="8490"
-        data-product-image="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80"
+        data-product-image="https://images.unsplash.com/photo-1543981212-0c5c5a362e84?auto=format&fit=crop&w=1200&q=80"
       >
         <img
           class="card-img"
-          src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80"
-          alt="Adidas sneaker on reflective black surface"
+          src="https://images.unsplash.com/photo-1543981212-0c5c5a362e84?auto=format&fit=crop&w=1200&q=80"
+          alt="Black Adidas sneakers on street"
         />
         <h3 class="card-title">Adidas Cloudline Black</h3>
         <p class="card-meta">Adidas · Soft cushioned runner</p>
@@ -100,15 +100,15 @@
         data-product-name="New Balance 574 Grey"
         data-product-brand="New Balance"
         data-product-price="9490"
-        data-product-image="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
+        data-product-image="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
       >
         <img
           class="card-img"
-          src="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
-          alt="Grey New Balance sneaker"
+          src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
+          alt="Minimal white sneaker on block"
         />
         <h3 class="card-title">New Balance 574 Grey</h3>
-        <p class="card-meta">New Balance · Classic “dad shoe” comfort</p>
+        <p class="card-meta">New Balance · Classic comfort</p>
         <div class="card-footer">
           <div class="price">₹9,490 <span>incl. GST</span></div>
           <button type="button" class="btn-primary add-to-cart">Add to cart</button>
@@ -122,12 +122,12 @@
         data-product-name="Nike Court Flow White Gum"
         data-product-brand="Nike"
         data-product-price="7490"
-        data-product-image="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
+        data-product-image="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?auto=format&fit=crop&w=1200&q=80"
       >
         <img
           class="card-img"
-          src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
-          alt="White Nike sneaker on minimal concrete block"
+          src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?auto=format&fit=crop&w=1200&q=80"
+          alt="Red canvas sneaker on yellow background"
         />
         <h3 class="card-title">Nike Court Flow White Gum</h3>
         <p class="card-meta">Nike · Court / street mix</p>
@@ -144,15 +144,15 @@
         data-product-name="Puma Velocity Red"
         data-product-brand="Puma"
         data-product-price="6990"
-        data-product-image="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
+        data-product-image="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
       >
         <img
           class="card-img"
-          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
-          alt="Red and black Puma sneaker"
+          src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
+          alt="Clean white sneaker on minimal block"
         />
         <h3 class="card-title">Puma Velocity Red</h3>
-        <p class="card-meta">Puma · Everyday trainer with pop</p>
+        <p class="card-meta">Puma · Everyday trainer</p>
         <div class="card-footer">
           <div class="price">₹6,990 <span>incl. GST</span></div>
           <button type="button" class="btn-primary add-to-cart">Add to cart</button>
@@ -171,7 +171,7 @@
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
-          alt="Black and white Asics running shoe"
+          alt="Asics running shoes on road"
         />
         <h3 class="card-title">Asics Road Flow Black</h3>
         <p class="card-meta">Asics · Distance / treadmill</p>
@@ -190,7 +190,6 @@
 </main>
 
 <script>
-  // --- Simple cart using localStorage ---
   const CART_KEY = "killerKicksCart";
 
   function getCart() {
@@ -226,14 +225,13 @@
 
     saveCart(cart);
 
-    // Tiny feedback
     const original = button.textContent;
     button.textContent = "Added";
     button.disabled = true;
     setTimeout(() => {
       button.textContent = original;
       button.disabled = false;
-    }, 700);
+    }, 600);
   }
 
   document.addEventListener("DOMContentLoaded", () => {

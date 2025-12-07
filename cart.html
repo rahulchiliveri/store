@@ -5,6 +5,48 @@
   <title>Cart – Killer Kicks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* small inline tweaks just for cart controls */
+    .cart-line {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .cart-thumb {
+      max-width: 110px;
+      border-radius: 0.7rem;
+    }
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+    }
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .remove-btn {
+      border: none;
+      background: none;
+      color: #ef4444;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+    }
+    .cart-empty {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 <header class="navbar">
@@ -32,59 +74,27 @@
         <h1 class="section-title">Review your order</h1>
       </div>
       <p class="section-subtitle">
-        You can adjust items by going back to the Products page, then return here to continue checkout.
+        Add or remove pairs here. When you’re ready, continue to payment.
       </p>
     </div>
 
     <div class="split">
       <!-- Cart items -->
-      <div class="grid">
-        <article class="card fade-up delay-1">
-          <div style="display:flex; gap:1rem; align-items:center;">
-            <img
-              class="card-img"
-              style="max-width:150px;"
-              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
-              alt="Nike Air Shift"
-            />
-            <div>
-              <h3 class="card-title">Nike Air Shift</h3>
-              <p class="card-meta">Nike · Size EU 42 · Triple White</p>
-              <p class="muted">₹9,990 · Qty: 1</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="card fade-up delay-2">
-          <div style="display:flex; gap:1rem; align-items:center;">
-            <img
-              class="card-img"
-              style="max-width:150px;"
-              src="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
-              alt="New Balance 574 Neo"
-            />
-            <div>
-              <h3 class="card-title">New Balance 574 Neo</h3>
-              <p class="card-meta">New Balance · Size EU 43 · Grey</p>
-              <p class="muted">₹9,490 · Qty: 1</p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div id="cart-items" class="grid"></div>
 
       <!-- Summary -->
-      <aside class="card fade-right delay-3">
+      <aside class="card fade-right delay-2" id="cart-summary">
         <h2 class="card-title">Order summary</h2>
-        <p class="card-meta">Check totals before payment</p>
+        <p class="card-meta">Totals for your current cart</p>
 
         <div style="margin-top:0.8rem; font-size:0.9rem;">
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">Subtotal</span>
-            <span>₹19,480</span>
+            <span id="subtotal-amount">₹0</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">GST (18%)</span>
-            <span>₹3,506</span>
+            <span id="gst-amount">₹0</span>
           </div>
           <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
             <span class="muted">Shipping</span>
@@ -93,13 +103,13 @@
           <hr style="border:none; border-top:1px solid #e5e7eb; margin:0.7rem 0;" />
           <div style="display:flex; justify-content:space-between; font-weight:700;">
             <span>Total</span>
-            <span>₹22,986</span>
+            <span id="total-amount">₹0</span>
           </div>
         </div>
 
         <div style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
-          <a href="payment.html" class="btn-primary">Proceed to payment</a>
-          <a href="products.html" class="btn-outline">Add more products</a>
+          <a href="payment.html" class="btn-primary" id="proceed-btn">Proceed to payment</a>
+          <a href="products.html" class="btn-outline">Back to products</a>
         </div>
       </aside>
     </div>
@@ -110,5 +120,131 @@
     <div><a href="index.html">Home</a> · <a href="products.html">Products</a> · Cart</div>
   </footer>
 </main>
+
+<script>
+  const CART_KEY = "killerKicksCart";
+
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+
+  function formatINR(n) {
+    return "₹" + n.toLocaleString("en-IN");
+  }
+
+  function renderCart() {
+    const container = document.getElementById("cart-items");
+    const summaryBox = document.getElementById("cart-summary");
+    const proceedBtn = document.getElementById("proceed-btn");
+    const subtotalEl = document.getElementById("subtotal-amount");
+    const gstEl = document.getElementById("gst-amount");
+    const totalEl = document.getElementById("total-amount");
+
+    let cart = getCart();
+    container.innerHTML = "";
+
+    if (!cart.length) {
+      container.innerHTML = `
+        <div class="cart-empty fade-up">
+          <p class="muted">Your cart is empty.</p>
+          <br />
+          <a href="products.html" class="btn-primary">Browse products</a>
+        </div>
+      `;
+      subtotalEl.textContent = "₹0";
+      gstEl.textContent = "₹0";
+      totalEl.textContent = "₹0";
+      proceedBtn.classList.add("btn-outline");
+      proceedBtn.classList.remove("btn-primary");
+      proceedBtn.textContent = "Cart is empty";
+      proceedBtn.href = "products.html";
+      return;
+    }
+
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+      const lineTotal = item.price * item.qty;
+      subtotal += lineTotal;
+
+      const article = document.createElement("article");
+      article.className = "card fade-up";
+      article.style.animationDelay = `${0.1 * (index + 1)}s`;
+
+      article.innerHTML = `
+        <div class="cart-line">
+          <img class="cart-thumb" src="${item.image}" alt="${item.name}" />
+          <div>
+            <h3 class="card-title">${item.name}</h3>
+            <p class="card-meta">${item.brand}</p>
+            <p class="muted">${formatINR(item.price)} × ${item.qty} = ${formatINR(lineTotal)}</p>
+            <div class="qty-controls" data-id="${item.id}">
+              <button type="button" class="qty-btn" data-action="dec">-</button>
+              <span>${item.qty}</span>
+              <button type="button" class="qty-btn" data-action="inc">+</button>
+              <button type="button" class="remove-btn" data-action="remove">Remove</button>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(article);
+    });
+
+    const gst = Math.round(subtotal * 0.18);
+    const total = subtotal + gst;
+
+    subtotalEl.textContent = formatINR(subtotal);
+    gstEl.textContent = formatINR(gst);
+    totalEl.textContent = formatINR(total);
+
+    proceedBtn.classList.remove("btn-outline");
+    proceedBtn.classList.add("btn-primary");
+    proceedBtn.textContent = "Proceed to payment";
+    proceedBtn.href = "payment.html";
+  }
+
+  function updateQty(id, action) {
+    let cart = getCart();
+    const item = cart.find((i) => i.id === id);
+    if (!item) return;
+
+    if (action === "inc") {
+      item.qty += 1;
+    } else if (action === "dec") {
+      item.qty -= 1;
+      if (item.qty <= 0) {
+        cart = cart.filter((i) => i.id !== id);
+      }
+    } else if (action === "remove") {
+      cart = cart.filter((i) => i.id !== id);
+    }
+
+    saveCart(cart);
+    renderCart();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+
+    document.getElementById("cart-items").addEventListener("click", (e) => {
+      const btn = e.target;
+      if (!btn.dataset.action) return;
+
+      const wrapper = btn.closest(".qty-controls");
+      if (!wrapper) return;
+
+      const id = wrapper.dataset.id;
+      updateQty(id, btn.dataset.action);
+    });
+  });
+</script>
 </body>
 </html>

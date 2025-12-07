@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment – Killer Kicks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-logo"></div>
+      <div>
+        <div class="brand-text-main">Killer Kicks</div>
+        <div class="brand-text-sub">Nike · Puma · Adidas · Asics · New Balance</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrapper">
+  <section class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">Secure checkout</div>
+        <h1 class="section-title">Payment details</h1>
+      </div>
+      <p class="section-subtitle">
+        Enter your address and payment information to complete your order.
+        (Static demo – no real payment is processed.)
+      </p>
+    </div>
+
+    <div class="about-layout">
+      <!-- Payment form -->
+      <form class="form animate-up delay-1" action="thankyou.html" method="GET">
+        <div class="form-row">
+          <div>
+            <label class="label" for="fullname">Full name</label>
+            <input id="fullname" type="text" class="input" placeholder="Your name" required />
+          </div>
+          <div>
+            <label class="label" for="email">Email</label>
+            <input id="email" type="email" class="input" placeholder="you@example.com" required />
+          </div>
+        </div>
+
+        <div>
+          <label class="label" for="address">Address</label>
+          <input id="address" type="text" class="input" placeholder="Flat / Street / Area" required />
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label class="label" for="city">City</label>
+            <input id="city" type="text" class="input" placeholder="Your city" required />
+          </div>
+          <div>
+            <label class="label" for="pincode">Pincode</label>
+            <input id="pincode" type="text" class="input" placeholder="000000" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label class="label" for="payment-method">Payment method</label>
+            <select id="payment-method" class="input" required>
+              <option value="">Select method</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="upi">UPI</option>
+              <option value="cod">Cash on Delivery</option>
+            </select>
+          </div>
+          <div>
+            <label class="label" for="phone">Phone</label>
+            <input id="phone" type="tel" class="input" placeholder="+91-XXXXXXXXXX" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">Pay securely</button>
+        <a href="cart.html" class="btn-ghost" style="margin-top:0.5rem;">Back to cart</a>
+      </form>
+
+      <!-- Order summary mini -->
+      <aside class="card animate-right delay-2">
+        <h2 class="card-title">Order summary</h2>
+        <p class="card-meta">Nike + New Balance</p>
+
+        <p class="muted" style="margin-top:0.6rem;">
+          • Nike Air Shift – Size 42<br />
+          • New Balance 574 Neo – Size 43
+        </p>
+
+        <div style="margin-top:0.8rem; font-size:0.9rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">Subtotal</span>
+            <span>₹19,480</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">GST (18%)</span>
+            <span>₹3,506</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+            <span class="muted">Shipping</span>
+            <span>₹0</span>
+          </div>
+          <hr style="border:none; border-top:1px solid rgba(148,163,184,0.4); margin:0.7rem 0;" />
+          <div style="display:flex; justify-content:space-between; font-weight:700;">
+            <span>Total</span>
+            <span>₹22,986</span>
+          </div>
+        </div>
+
+        <div class="brand-row" style="margin-top:1rem;">
+          <span class="brand-chip">Secure checkout</span>
+          <span class="brand-chip">UPI / Card / COD</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2025 Killer Kicks. All rights reserved.</div>
+    <div><a href="index.html">Home</a> · <a href="products.html">Products</a> · <a href="cart.html">Cart</a></div>
+  </footer>
+</main>
+</body>
+</html>

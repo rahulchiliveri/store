@@ -29,139 +29,155 @@
     <div class="section-header">
       <div>
         <div class="section-kicker">All products</div>
-        <h1 class="section-title">Pick your next pair</h1>
+        <h1 class="section-title">Shop Killer Kicks</h1>
       </div>
       <p class="section-subtitle">
-        Clean, wearable sneakers from top brands. Click “Add to cart” to move to your cart page.
+        A tight, curated rotation of everyday sneakers. Neutral colours, simple silhouettes,
+        no loud junk – just easy-to-wear pairs.
       </p>
     </div>
 
+    <!-- Static “filters” row -->
     <div style="margin-bottom:1.2rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+      <span class="chip">All</span>
       <span class="chip">Nike</span>
-      <span class="chip">Puma</span>
       <span class="chip">Adidas</span>
+      <span class="chip">Puma</span>
       <span class="chip">Asics</span>
       <span class="chip">New Balance</span>
     </div>
 
-    <div class="grid grid-4">
-      <!-- Nike -->
-      <article class="card fade-up delay-1">
+    <!-- 3x2 grid -->
+    <div class="grid grid-3">
+      <!-- 1. Nike -->
+      <article
+        class="card fade-up delay-1"
+        data-product-id="nk-air-shift"
+        data-product-name="Nike Air Shift Triple White"
+        data-product-brand="Nike"
+        data-product-price="9990"
+        data-product-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+      >
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
           alt="Triple white Nike sneaker on dark background"
         />
-        <h3 class="card-title">Nike Air Shift</h3>
-        <p class="card-meta">Nike · Lifestyle</p>
+        <h3 class="card-title">Nike Air Shift Triple White</h3>
+        <p class="card-meta">Nike · Clean daily pair</p>
         <div class="card-footer">
           <div class="price">₹9,990 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
         </div>
       </article>
 
-      <!-- Puma -->
-      <article class="card fade-up delay-2">
-        <img
-          class="card-img"
-          src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=1200&q=80"
-          alt="Puma running shoe on wooden surface"
-        />
-        <h3 class="card-title">Puma Drift Runner</h3>
-        <p class="card-meta">Puma · Performance</p>
-        <div class="card-footer">
-          <div class="price">₹7,490 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
-        </div>
-      </article>
-
-      <!-- Adidas 1 -->
-      <article class="card fade-up delay-3">
+      <!-- 2. Adidas -->
+      <article
+        class="card fade-up delay-2"
+        data-product-id="ad-cloudline"
+        data-product-name="Adidas Cloudline Black"
+        data-product-brand="Adidas"
+        data-product-price="8490"
+        data-product-image="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80"
+      >
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1200&q=80"
-          alt="Adidas sneakers on dark reflective background"
+          alt="Adidas sneaker on reflective black surface"
         />
-        <h3 class="card-title">Adidas Cloudline</h3>
-        <p class="card-meta">Adidas · Runner</p>
+        <h3 class="card-title">Adidas Cloudline Black</h3>
+        <p class="card-meta">Adidas · Soft cushioned runner</p>
         <div class="card-footer">
           <div class="price">₹8,490 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
         </div>
       </article>
 
-      <!-- Asics -->
-      <article class="card fade-up delay-4">
-        <img
-          class="card-img"
-          src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
-          alt="Black and white Asics running shoe"
-        />
-        <h3 class="card-title">Asics Road Flow</h3>
-        <p class="card-meta">Asics · Distance</p>
-        <div class="card-footer">
-          <div class="price">₹10,490 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
-        </div>
-      </article>
-
-      <!-- New Balance -->
-      <article class="card fade-up delay-1">
+      <!-- 3. New Balance -->
+      <article
+        class="card fade-up delay-3"
+        data-product-id="nb-574-grey"
+        data-product-name="New Balance 574 Grey"
+        data-product-brand="New Balance"
+        data-product-price="9490"
+        data-product-image="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
+      >
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1516239482977-b550ba7253f2?auto=format&fit=crop&w=1200&q=80"
-          alt="Grey New Balance sneaker with soft lighting"
+          alt="Grey New Balance sneaker"
         />
-        <h3 class="card-title">New Balance 574 Neo</h3>
-        <p class="card-meta">New Balance · Classic</p>
+        <h3 class="card-title">New Balance 574 Grey</h3>
+        <p class="card-meta">New Balance · Classic “dad shoe” comfort</p>
         <div class="card-footer">
           <div class="price">₹9,490 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
         </div>
       </article>
 
-      <!-- Nike 2 -->
-      <article class="card fade-up delay-2">
+      <!-- 4. Nike 2 -->
+      <article
+        class="card fade-up delay-1"
+        data-product-id="nk-court-flow"
+        data-product-name="Nike Court Flow White Gum"
+        data-product-brand="Nike"
+        data-product-price="7490"
+        data-product-image="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
+      >
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=1200&q=80"
-          alt="Clean white Nike sneaker on minimal background"
+          alt="White Nike sneaker on minimal concrete block"
         />
-        <h3 class="card-title">Nike Court Flow</h3>
-        <p class="card-meta">Nike · Court</p>
+        <h3 class="card-title">Nike Court Flow White Gum</h3>
+        <p class="card-meta">Nike · Court / street mix</p>
         <div class="card-footer">
-          <div class="price">₹6,990 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
+          <div class="price">₹7,490 <span>incl. GST</span></div>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
         </div>
       </article>
 
-      <!-- Adidas 2 -->
-      <article class="card fade-up delay-3">
-        <img
-          class="card-img"
-          src="https://images.unsplash.com/photo-1543981212-0c5c5a362e84?auto=format&fit=crop&w=1200&q=80"
-          alt="Black Adidas sneakers with white stripes on street"
-        />
-        <h3 class="card-title">Adidas City Glide</h3>
-        <p class="card-meta">Adidas · Lifestyle</p>
-        <div class="card-footer">
-          <div class="price">₹7,990 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
-        </div>
-      </article>
-
-      <!-- Puma 2 -->
-      <article class="card fade-up delay-4">
+      <!-- 5. Puma -->
+      <article
+        class="card fade-up delay-2"
+        data-product-id="pm-velocity-red"
+        data-product-name="Puma Velocity Red"
+        data-product-brand="Puma"
+        data-product-price="6990"
+        data-product-image="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
+      >
         <img
           class="card-img"
           src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80"
           alt="Red and black Puma sneaker"
         />
-        <h3 class="card-title">Puma Velocity</h3>
-        <p class="card-meta">Puma · Trainer</p>
+        <h3 class="card-title">Puma Velocity Red</h3>
+        <p class="card-meta">Puma · Everyday trainer with pop</p>
         <div class="card-footer">
-          <div class="price">₹6,490 <span>incl. GST</span></div>
-          <a href="cart.html" class="btn-primary">Add to cart</a>
+          <div class="price">₹6,990 <span>incl. GST</span></div>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
+        </div>
+      </article>
+
+      <!-- 6. Asics -->
+      <article
+        class="card fade-up delay-3"
+        data-product-id="as-road-flow"
+        data-product-name="Asics Road Flow Black"
+        data-product-brand="Asics"
+        data-product-price="10490"
+        data-product-image="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
+      >
+        <img
+          class="card-img"
+          src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
+          alt="Black and white Asics running shoe"
+        />
+        <h3 class="card-title">Asics Road Flow Black</h3>
+        <p class="card-meta">Asics · Distance / treadmill</p>
+        <div class="card-footer">
+          <div class="price">₹10,490 <span>incl. GST</span></div>
+          <button type="button" class="btn-primary add-to-cart">Add to cart</button>
         </div>
       </article>
     </div>
@@ -172,5 +188,59 @@
     <div><a href="index.html">Home</a> · Products · <a href="cart.html">Cart</a></div>
   </footer>
 </main>
+
+<script>
+  // --- Simple cart using localStorage ---
+  const CART_KEY = "killerKicksCart";
+
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+
+  function addToCartFromButton(button) {
+    const card = button.closest("[data-product-id]");
+    if (!card) return;
+
+    const id = card.dataset.productId;
+    const name = card.dataset.productName;
+    const brand = card.dataset.productBrand;
+    const price = parseInt(card.dataset.productPrice, 10);
+    const image = card.dataset.productImage;
+
+    let cart = getCart();
+    const existing = cart.find((item) => item.id === id);
+
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ id, name, brand, price, image, qty: 1 });
+    }
+
+    saveCart(cart);
+
+    // Tiny feedback
+    const original = button.textContent;
+    button.textContent = "Added";
+    button.disabled = true;
+    setTimeout(() => {
+      button.textContent = original;
+      button.disabled = false;
+    }, 700);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".add-to-cart").forEach((btn) => {
+      btn.addEventListener("click", () => addToCartFromButton(btn));
+    });
+  });
+</script>
 </body>
 </html>

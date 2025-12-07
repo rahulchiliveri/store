@@ -32,38 +32,37 @@
         <h1 class="section-title">Payment details</h1>
       </div>
       <p class="section-subtitle">
-        Enter your address and payment information to complete your order.
-        (Static demo – no real payment is processed.)
+        Fill in your contact and address details. This is a demo only – no real payment will be processed.
       </p>
     </div>
 
-    <div class="about-layout">
-      <!-- Payment form -->
-      <form class="form animate-up delay-1" action="thankyou.html" method="GET">
+    <div class="split">
+      <!-- Form -->
+      <form class="form fade-up delay-1" action="thankyou.html" method="GET">
         <div class="form-row">
           <div>
             <label class="label" for="fullname">Full name</label>
-            <input id="fullname" type="text" class="input" placeholder="Your name" required />
+            <input id="fullname" class="input" type="text" placeholder="Your name" required />
           </div>
           <div>
             <label class="label" for="email">Email</label>
-            <input id="email" type="email" class="input" placeholder="you@example.com" required />
+            <input id="email" class="input" type="email" placeholder="you@example.com" required />
           </div>
         </div>
 
         <div>
           <label class="label" for="address">Address</label>
-          <input id="address" type="text" class="input" placeholder="Flat / Street / Area" required />
+          <input id="address" class="input" type="text" placeholder="Flat / Street / Area" required />
         </div>
 
         <div class="form-row">
           <div>
             <label class="label" for="city">City</label>
-            <input id="city" type="text" class="input" placeholder="Your city" required />
+            <input id="city" class="input" type="text" placeholder="Your city" required />
           </div>
           <div>
             <label class="label" for="pincode">Pincode</label>
-            <input id="pincode" type="text" class="input" placeholder="000000" required />
+            <input id="pincode" class="input" type="text" placeholder="000000" required />
           </div>
         </div>
 
@@ -79,16 +78,16 @@
           </div>
           <div>
             <label class="label" for="phone">Phone</label>
-            <input id="phone" type="tel" class="input" placeholder="+91-XXXXXXXXXX" required />
+            <input id="phone" class="input" type="tel" placeholder="+91-XXXXXXXXXX" required />
           </div>
         </div>
 
         <button type="submit" class="btn-primary">Pay securely</button>
-        <a href="cart.html" class="btn-ghost" style="margin-top:0.5rem;">Back to cart</a>
+        <a href="cart.html" class="btn-outline" style="margin-top:0.5rem;">Back to cart</a>
       </form>
 
-      <!-- Order summary mini -->
-      <aside class="card animate-right delay-2">
+      <!-- Summary -->
+      <aside class="card fade-right delay-2">
         <h2 class="card-title">Order summary</h2>
         <p class="card-meta">Nike + New Balance</p>
 
@@ -110,17 +109,17 @@
             <span class="muted">Shipping</span>
             <span>₹0</span>
           </div>
-          <hr style="border:none; border-top:1px solid rgba(148,163,184,0.4); margin:0.7rem 0;" />
+          <hr style="border:none; border-top:1px solid #e5e7eb; margin:0.7rem 0;" />
           <div style="display:flex; justify-content:space-between; font-weight:700;">
             <span>Total</span>
             <span>₹22,986</span>
           </div>
         </div>
 
-        <div class="brand-row" style="margin-top:1rem;">
-          <span class="brand-chip">Secure checkout</span>
-          <span class="brand-chip">UPI / Card / COD</span>
-        </div>
+        <p class="muted" style="margin-top:0.8rem;">
+          Payments are secured and encrypted. For demo purposes, this page simply leads to
+          a thank you screen.
+        </p>
       </aside>
     </div>
   </section>
